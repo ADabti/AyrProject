@@ -1,6 +1,6 @@
 // socket.js
 const socketIo = require('socket.io');
-let io; // Declare io at the module level to ensure it's shared across calls
+let io; 
 
 exports.initialize = (server) => {
     io = socketIo(server, {

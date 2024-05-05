@@ -28,14 +28,14 @@ router.post('/click', authenticate, async (req, res) => {
       req.user._id,
       {
         $inc: { count: 1 },
-        $set: { lastUpdated: new Date() } // Update the lastUpdated timestamp
+        $set: { lastUpdated: new Date() } 
       },
       { new: true }
     );
     if (!user) {
       return res.status(404).send("User not found");
     }
-    const io = socket.getIo(); // Retrieve the Socket.IO instance
+    const io = socket.getIo();
     io.emit('countUpdated', { user: user.username, count: user.count });
     res.json(user);
   } catch (error) {

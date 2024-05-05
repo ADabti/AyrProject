@@ -24,7 +24,7 @@ function Login() {
         setIsLoading(true);
         try {
             const response = await axios.post(`${baseUrl}/api/users/login`, { username, password });
-            if (response.data.accessToken && response.data.refreshToken) {  // Check for both tokens
+            if (response.data.accessToken && response.data.refreshToken) {  
                 login(response.data.accessToken, response.data.refreshToken, response.data.username);
                 navigate('/button-click');
             } else {

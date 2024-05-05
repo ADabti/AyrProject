@@ -9,22 +9,22 @@ const app = express();
 const server = http.createServer(app);
 
 // Import your custom Socket.IO configuration
-const socketConfig = require('./auth/socket'); // Adjust the path as necessary to match your file structure
-const io = socketConfig.initialize(server); // This sets up and returns the Socket.IO instance
+const socketConfig = require('./auth/socket'); 
+const io = socketConfig.initialize(server); 
 
 const clickRoutes = require('./routes/clickRoutes');
 const authRoutes = require('./routes/authRoutes');
 
 // Configure CORS and other middlewares
 app.use(cors({
-  origin: ["http://ayrproject.s3-website.us-east-2.amazonaws.com", "https://ayrproject.onrender.com","http://localhost:5000", "http://localhost:3000"], // Match the client's origin for Express routes
+  origin: ["http://ayrproject.s3-website.us-east-2.amazonaws.com", "https://ayrproject.onrender.com","http://localhost:5000", "http://localhost:3000"],
   credentials: true // Enable credentials to allow sending cookies and auth headers
 }));
 
-app.use(express.json()); // for parsing application/json
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
-// Setup routes
+// endpoint declaration for routes
 app.use('/api', clickRoutes);
 app.use('/api/users', authRoutes);
 

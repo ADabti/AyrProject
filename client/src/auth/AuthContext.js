@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const logout = () => {
-        sessionStorage.clear(); // Clear all session storage
+        sessionStorage.clear(); // Clear all session storage before logout
         setCurrentUser(null);
     };
 

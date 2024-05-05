@@ -47,8 +47,8 @@ router.post('/login', async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid credentials.' });
         }
-        const accessToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '15m' }); // Short-lived access token
-        const refreshToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '7d' }); // Long-lived refresh token
+        const accessToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '15m' });
+        const refreshToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '7d' }); 
 
         res.json({
             message: 'User logged in successfully',

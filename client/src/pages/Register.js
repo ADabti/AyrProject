@@ -8,7 +8,7 @@ import { getBaseUrl } from '../auth/Config';
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isRegistering, setIsRegistering] = useState(false); // State to manage the registration loading state
+    const [isRegistering, setIsRegistering] = useState(false);
     const navigate = useNavigate();
     const { currentUser } = useAuth();
     const baseUrl = getBaseUrl();
@@ -21,7 +21,7 @@ function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setIsRegistering(true); // Begin the registration process
+        setIsRegistering(true);
         try {
             await axios.post(`${baseUrl}/api/users/register`, { username, password });
             alert('User registered successfully');
@@ -29,7 +29,7 @@ function Register() {
         } catch (error) {
             alert('Failed to register');
         } finally {
-            setIsRegistering(false); // End the registration process regardless of outcome
+            setIsRegistering(false); 
         }
     };
 

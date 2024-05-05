@@ -1,6 +1,6 @@
 // server/auth/authenticate.js
 const jwt = require('jsonwebtoken');
-const User = require('../models/userSchema.js'); // Adjust the path as needed
+const User = require('../models/userSchema.js'); 
 
 const authenticate = async (req, res, next) => {
     try {

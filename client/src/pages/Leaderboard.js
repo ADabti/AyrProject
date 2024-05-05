@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth } from '../auth/AuthContext';
 import io from 'socket.io-client';
 import { getBaseUrl } from '../auth/Config';
-import { GiLaurelCrown } from 'react-icons/gi'; // Importing specific icons
+import { GiLaurelCrown } from 'react-icons/gi'; 
 
 const baseUrl = getBaseUrl();
 const socket = io(baseUrl);
@@ -23,7 +23,7 @@ function Leaderboard() {
             setTopUsers(response.data.topUsers.slice(0, 3));
             // Determine if the current user is within the top 3
             const isInTopThree = response.data.topUsers.some(user => user._id === currentUser._id);
-            // If not in the top 3 and ranked higher, then set their rank
+            // If not in the top 3 then set their rank
             const currentUserData = response.data.currentUserData;
             if (currentUserData && !isInTopThree) {
                 setCurrentUserRank(currentUserData);
