@@ -51,9 +51,14 @@ ClickMe utilizes Socket.IO, a powerful JavaScript library, to manage real-time w
 
 ## 6. Access Instructions
 ### Online Access
-- To access "ClickMe online, you can visit the following URL: [ClickMe](http://ayrproject.s3-website.us-east-2.amazonaws.com/)
+- To access "ClickMe" online, you can visit the following URL: [ClickMe](http://ayrproject.s3-website.us-east-2.amazonaws.com/)
 
 ### Offline Access
 - **Clone the Repository**: First, clone the repository to your local machine using the following Git command: `git clone https://github.com/ADabti/AyrProject.git`
 - **To start the Frontend**: navigate to the client folder in your terminal and run: `npm start` and the frontend will start on: http://localhost:3000/
 - **To start the Backend**: navigate to the server folder in your terminal and run: `node ./index.js` and the backend will start on: http://localhost:5000/
+
+## 7. What I Would Have Done Better
+- I would have added a skeleton loading feature to the frontend components to enhance the user experience during data loading times.
+- Implementing caching strategies for frequently accessed data like user scores to improve response times and reduce server load.
+- Utilizing MongoDB’s capabilities for database indexing to enhance the performance of database queries, especially during high traffic periods.
