@@ -54,8 +54,8 @@ function ButtonClick() {
         <Leaderboard />
       </div>
       <div className="order-1 lg:order-2 w-full max-w-lg flex flex-col items-center justify-center px-4 py-6">
-        <h2 className="text-2xl font-bold mb-4">Welcome {currentUser?.username}!</h2>
-        <div className="mb-4 p-6 bg-white rounded-xl shadow-lg">
+        <h2 className="text-2xl font-bold mb-4">Welcome {currentUser?.username.charAt(0).toUpperCase() + currentUser?.username.slice(1)}!</h2>
+        <div className="mb-4  p-6 bg-white rounded-xl shadow-lg">
           <h1 className="text-3xl font-bold text-blue-500">Click Count: <span className="text-black">{count}</span></h1>
         </div>
         <button

@@ -22,17 +22,18 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsRegistering(true);
+        const formattedUsername = username.charAt(0).toLowerCase() + username.slice(1);
         try {
-            await axios.post(`${baseUrl}/api/users/register`, { username, password });
+            await axios.post(`${baseUrl}/api/users/register`, { username: formattedUsername, password });
             alert('User registered successfully');
-            navigate('/login'); // Navigate to login after successful registration
+            navigate('/login');
         } catch (error) {
             alert('Failed to register');
         } finally {
             setIsRegistering(false); 
         }
     };
-
+    
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="p-8 bg-white rounded shadow-lg">

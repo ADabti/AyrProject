@@ -5,6 +5,7 @@ import { useAuth } from '../auth/AuthContext';
 import io from 'socket.io-client';
 import { getBaseUrl } from '../auth/Config';
 import { GiLaurelCrown } from 'react-icons/gi'; 
+import { FaCrown } from "react-icons/fa";
 
 const baseUrl = getBaseUrl();
 const socket = io(baseUrl);
@@ -47,15 +48,19 @@ function Leaderboard() {
         };
     }, [currentUser]);
 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    
     const UserRow = ({ user, index }) => (
         <div key={user._id} className={`flex items-center justify-between p-2 sm:p-3 m-2 ${user.username === currentUser.username ? 'bg-blue-100 text-blue-800' : 'bg-gray-50 text-gray-700'} rounded-lg shadow`}>
             <span className="flex-1 text-left font-medium">
-                {index + 1}. {user.username} {index === 0 && <GiLaurelCrown className="inline ml-2 text-yellow-400"/>}
+                {index + 1}. {capitalizeFirstLetter(user.username)} {index === 0 && <FaCrown className="inline ml-2 text-blue-600"/>}
             </span>
             <span className="w-16 sm:w-20 text-right font-semibold">{user.count}</span>
         </div>
     );
-
+    
     return (
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg space-y-3 sm:space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-800">Leaderboard</h2>

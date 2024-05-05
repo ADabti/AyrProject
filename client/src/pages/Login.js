@@ -22,8 +22,9 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true);
+        const formattedUsername = username.charAt(0).toLowerCase() + username.slice(1);
         try {
-            const response = await axios.post(`${baseUrl}/api/users/login`, { username, password });
+            const response = await axios.post(`${baseUrl}/api/users/login`, { username: formattedUsername, password });
             if (response.data.accessToken && response.data.refreshToken) {  
                 login(response.data.accessToken, response.data.refreshToken, response.data.username);
                 navigate('/button-click');
@@ -37,7 +38,7 @@ function Login() {
             setIsLoading(false);
         }
     };
-
+    
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="p-8 bg-white rounded shadow-lg">
