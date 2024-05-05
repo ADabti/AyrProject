@@ -15,8 +15,12 @@ const userSchema = new mongoose.Schema({
     count: {
         type: Number,
         default: 0
+    },
+    lastUpdated: {
+        type: Date,
+        default: Date.now
     }
-}, { collection: "AyrProjectUsers" }); //name of the collection in Mongodb is AyrProjectUsers
+}, { collection: "AyrProjectUsers" });
 
 // Middleware to hash password before saving
 userSchema.pre('save', async function(next) {

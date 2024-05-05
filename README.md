@@ -51,7 +51,7 @@ ClickMe utilizes Socket.IO, a powerful JavaScript library, to manage real-time w
 
 ## 6. Access Instructions
 ### Online Access
-- To access "ClickMe online, you can visit the following URL: [ClickMe Frontend](http://ayrproject.s3-website.us-east-2.amazonaws.com/)
+- To access "ClickMe online, you can visit the following URL: [ClickMe](http://ayrproject.s3-website.us-east-2.amazonaws.com/)
 
 ### Offline Access
 - **Clone the Repository**: First, clone the repository to your local machine using the following Git command: `git clone https://github.com/ADabti/AyrProject.git`

@@ -51,7 +51,7 @@ function ButtonClick() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-gray-100">
       <div className="order-2 lg:order-1 w-full lg:w-1/3 max-w-md px-3 py-6 lg:absolute lg:left-20 lg:top-1/2 lg:-translate-y-1/2  rounded-lg lg:shadow-none">
-        <Leaderboard currentUserId={currentUser?._id} />
+        <Leaderboard />
       </div>
       <div className="order-1 lg:order-2 w-full max-w-lg flex flex-col items-center justify-center px-4 py-6">
         <h2 className="text-2xl font-bold mb-4">Welcome {currentUser?.username}!</h2>

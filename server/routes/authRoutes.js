@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/clickCountSchema.js');
+const User = require('../models/userSchema.js');
 
 // Secret key for JWT signing
-const JWT_SECRET = 'secret_key_test'; // Replace 'your_secret_key' with a real secret key in production
+const JWT_SECRET = 'secret_key_test';
 
 // POST /api/users/register
 router.post('/register', async (req, res) => {
@@ -21,8 +21,6 @@ router.post('/register', async (req, res) => {
         if (existingUser) {
             return res.status(409).json({ message: 'Username already in use.' });
         }
-
-        // Create a new user
         const user = new User({ username, password });
         await user.save();
 
@@ -49,7 +47,6 @@ router.post('/login', async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid credentials.' });
         }
-
         const accessToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '15m' }); // Short-lived access token
         const refreshToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '7d' }); // Long-lived refresh token
 
@@ -71,7 +68,6 @@ router.post('/refresh', async (req, res) => {
     if (!refreshToken) {
         return res.status(401).json({ message: 'Refresh Token is required.' });
     }
-
     try {
         const decoded = jwt.verify(refreshToken, JWT_SECRET);
         const user = await User.findById(decoded.id);
