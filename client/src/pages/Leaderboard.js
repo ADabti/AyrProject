@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useAuth } from '../auth/AuthContext';
 import io from 'socket.io-client';
 import { getBaseUrl } from '../auth/Config';
-import { GiLaurelCrown } from 'react-icons/gi'; 
 import { FaCrown } from "react-icons/fa";
 
 const baseUrl = getBaseUrl();
